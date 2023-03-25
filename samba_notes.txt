@@ -1,0 +1,27 @@
+Mcb2020AD#@!
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers#assembly_setting-up-a-share-that-uses-windows-acls_assembly_using-samba-as-a-server
+
+https://access.redhat.com/solutions/29067
+
+https://access.redhat.com/solutions/43065
+
+https://access.redhat.com/labs/adih/	
+
+https://access.redhat.com/solutions/39821
+
+https://ubuntu.com/server/docs/samba-active-directory
+
+https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Using_Domain_Accounts_and_Groups_in_Operating_System_Commands
+
+setfacl -d -m g:"MCB+domain users":rwx /
+
+
+# chgrp -R "DOMAIN\\domain users" /SAMBASHARE/
+# chmod -R g+rws /SAMBASHARE/
+# chcon -R -t samba_share_t  /SAMBASHARE/
+
+wbinfo -u 
+wbinfo -g 
+systemctl status winbind
+chown "AD+administrator":"AD+Domain Users" /srv/samba/example.txt
